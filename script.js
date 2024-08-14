@@ -3,7 +3,6 @@ const slide = document.querySelectorAll(".slide");
 const dots = document.querySelector(".dots");
 let currentSlide = 0;
 let maxSlide = slide.length;
-// log
 
 const goToSlide = function (slider) {
   slide.forEach(
