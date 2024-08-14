@@ -1,6 +1,6 @@
 const sliderContainer = document.querySelector(".slider-container");
 const slide = document.querySelectorAll(".slide");
-
+const dots = document.querySelector(".dots");
 let currentSlide = 0;
 let maxSlide = slide.length;
 
@@ -41,7 +41,37 @@ const btnLeft = document.querySelector(".slider__btn--left");
 
 btnRight.addEventListener("click", function () {
   nextSlide(currentSlide);
+  activateDot(currentSlide);
 });
 btnLeft.addEventListener("click", function () {
+  //Previous slide =
+  //if (currentSlide === 0) {
+  //   currentSlide = maxSlide - 1;
+  // } else {
+  //   currentSlide--;
+  // }
+  // slide.forEach(
+  //(s, i) => (s.style.transform = `translateX(${100 * (i - slider)}%)`));
   prevSlide(currentSlide);
+  activateDot(currentSlide);
+});
+
+slide.forEach((item, index) => {
+  let html = `<button class="dot" data-index=${index}></button>`;
+  dots.insertAdjacentHTML("beforeend", html);
+});
+const dot = document.querySelectorAll(".dot");
+console.log(document.querySelector("[data-index='2']"));
+
+function activateDot(slide) {
+  dot.forEach(function (item) {
+    item.classList.remove("active");
+  });
+  document.querySelector(`.dot[data-index='${slide}']`).classList.add("active");
+}
+activateDot(0);
+
+dots.addEventListener("click", (e) => {
+  activateDot(e.target.dataset.index);
+  goToSlide(e.target.dataset.index);
 });

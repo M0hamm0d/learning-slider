@@ -33,3 +33,32 @@
   background-color: green;
   border: none;
 }
+.slider__btn--left {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+}
+.slider__btn--right {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+}
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border: none;
+}
+.dot.active {
+  background-color: green;
+}
